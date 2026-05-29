@@ -7,6 +7,7 @@
 # such as dmidecode, dmesg, lspci -vvv to read capabilities.
 # Author: srinivasan.subramanian@amd.com
 # Revision: V1.41
+# V1.42: added AMD-SMI metric ecc output
 # V1.41: cleanup and add some netowrk commands
 # V1.40: add AMD-SMI support (Shaun.O'Neill@amd.com)
 # V1.39: add mce, edac
