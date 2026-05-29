@@ -313,6 +313,21 @@ then
 	LD_LIBRARY_PATH=$ROCM_VERSION/lib:$LD_LIBRARY_PATH $ROCM_VERSION/bin/amd-smi xgmi
 fi
 
+#AMD SMI - Displays total ecc count of the devices
+if [ -f $ROCM_VERSION/bin/amd-smi ]
+then
+	echo "===== Section: AMD SMI ecc ==============="
+	LD_LIBRARY_PATH=$ROCM_VERSION/lib:$LD_LIBRARY_PATH $ROCM_VERSION/bin/amd-smi metric -e
+fi
+
+#AMD SMI - Displays ecc error per block of the devices
+ecc-blocks
+if [ -f $ROCM_VERSION/bin/amd-smi ]
+then
+	echo "===== Section: AMD SMI ecc-blocks ==============="
+	LD_LIBRARY_PATH=$ROCM_VERSION/lib:$LD_LIBRARY_PATH $ROCM_VERSION/bin/amd-smi metric -k
+fi
+
 # ROCm SMI 
 echo "===== Section: ROCm SMI                ==============="
 if [ -f $ROCM_VERSION/bin/rocm-smi ]
